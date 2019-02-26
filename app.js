@@ -1,0 +1,10 @@
+const express = require('express')
+const db = require('./config/db')
+const router = require('./controller')
+const path = require('path')
+const app = express()
+app.use(router)
+app.use(express.static(path.join(__dirname, 'static')))
+app.listen(db.port, () => {
+    console.log(`server running ${db.port}`)
+})
